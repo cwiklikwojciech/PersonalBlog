@@ -2,6 +2,9 @@
   <div class="home">
     <h1>Home</h1>
   </div>
+  <div v-if="!error">
+    <PostList :error="error"/>
+  </div>
   <PostList :posts="posts" />
 </template>
 
@@ -15,10 +18,11 @@ export default {
     PostList
   },
   setup(){
-    const {posts, load} = getPosts();
+    const {posts, error, load} = getPosts();
     load();
+    console.log(error);
     console.log(posts);
-    return { posts, load};
+    return { posts, error, load};
   }
 }
 </script>
