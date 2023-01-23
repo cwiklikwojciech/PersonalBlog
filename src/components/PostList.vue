@@ -1,12 +1,7 @@
 <template>
-    <div class="container">
-        <div class="post-list">
-            <div v-for="post in posts" :key="post.id">
-                <SinglePost :post="post" :error="error"/>
-            </div>
-        </div>
-        <div class="tags">
-            Test
+    <div class="grid-container">
+        <div v-for="post in posts" :key="post.id" class="grid-item">
+            <SinglePost :post="post" :error="error"/>
         </div>
     </div>
 </template>
@@ -25,15 +20,13 @@ export default {
 </script>
 
 <style>
-    .container {
-        display: flex;
-        justify-content: space-between;
-        max-width: 1200px;
-        align-items: center;
-        margin: 0 auto;
-        padding: 10px;
+    .grid-container {
+        display: grid;
+        grid-template-columns: 50% 50%;
     }
-    .post-list {
-        width: 100%;
+    .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding-right: 20px;
+        margin-bottom: 20px;
     }
 </style>

@@ -26,12 +26,7 @@ export default {
 </script>
 
 <style>
-  .container{
-    max-width: 1200px;
-    margin: 0 auto;
-  }
   .post{
-    text-align: left;
   }
   .title{
     background-color: rgb(244, 139, 2);
