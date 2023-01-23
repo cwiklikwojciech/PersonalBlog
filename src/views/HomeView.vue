@@ -22,8 +22,6 @@ export default {
   setup(){
     const {posts, error, load} = getPosts();
     load();
-    console.log(error);
-    console.log(posts);
     return { posts, error, load};
   }
 }

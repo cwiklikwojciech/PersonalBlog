@@ -14,7 +14,7 @@ export default {
         SinglePost
     },
     setup(props){
-        console.log(props.error);
+        console.log(props.posts);
     }
 }
 </script>
