@@ -9,7 +9,7 @@ const getPosts = () => {
         try{
             const res = await projectFirestore.collection('posts').get();
             posts.value = res.docs.map(doc => {
-                return {...doc.data()}
+                return {...doc.data(), id: doc.id};
             })
         }catch(err){
             error.value = err.message;
@@ -20,3 +20,4 @@ const getPosts = () => {
 }
 
 export default getPosts;
+
