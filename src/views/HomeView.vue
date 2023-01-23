@@ -1,24 +1,30 @@
 <template>
   <div class="home">
     <h1>Home</h1>
+      <div v-if="error">{{ error }}</div>
+      <div v-if="posts.length" class="layout">
+        <PostList :posts="posts" />
+        <Tags :posts="posts" />
+      </div>
   </div>
-  <PostList :posts="posts" />
 </template>
 
 <script>
 
 import PostList from "../components/PostList.vue"
 import getPosts from '../composables/getPosts';
+import Tags from '../components/Tags.vue'
 export default {
   name: 'Home',
   components: {
-    PostList
+    PostList, Tags
   },
   setup(){
-    const {posts, load} = getPosts();
+    const {posts, error, load} = getPosts();
     load();
+    console.log(error);
     console.log(posts);
-    return { posts, load};
+    return { posts, error, load};
   }
 }
 </script>
@@ -27,8 +33,15 @@ export default {
   .home{
     max-width: 1200px;
     margin: 0 auto;
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
+    padding: 10px;
+  }
+  .home h1{
+    text-align: left;
+  }
+  .layout{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap:30px;
+    text-align: left;
   }
 </style>

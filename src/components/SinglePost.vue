@@ -1,5 +1,16 @@
 <template>
-  <h3 class="title">{{ post.title }}</h3>
+  <div class="container">
+    <div class="post">
+      <h3 class="title">{{ post.title }}</h3>
+      <p>{{ post.body }}</p>
+      <span v-for="tag in post.tags" :key="tag">
+          #{{ tag }}
+      </span>
+    </div>
+
+  </div>
+  
+  
 </template>
 
 <script>
@@ -15,5 +26,9 @@ export default {
 </script>
 
 <style>
-
+  .post{
+  }
+  .title{
+    background-color: rgb(244, 139, 2);
+  }
 </style>
