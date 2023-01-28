@@ -7,9 +7,15 @@ const getPost = (id) => {
     const error = ref(null);
     const load = async () => {
         try{
-            const res = await projectFirestore.collection('posts').doc(id).get();
-            console.log(res);
+            let res = await projectFirestore.collection('posts').doc(id).get();
+
+            if(!res.exists){
+                throw Error ("That id doesn't exist");
+            }
+    
+            post.value = {...res.data(), id: res.id}        
         }catch(err){
+            console.log("Error")
             error.value = err.message;
         }
         
