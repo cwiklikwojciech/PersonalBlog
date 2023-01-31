@@ -1,10 +1,13 @@
 <template>
-  <h1>{{post.title}}</h1>
-  <p>{{ post.body }}</p>
-  <button @click="handleDelete">Delete</button>
+  <div class="delete">
+    <h1>{{post.title}}</h1>
+    <p>{{ post.body }}</p>
+    <button class="deleteButton" @click="handleDelete">Delete</button>
+  </div>
 </template>
 
 <script>
+import router from '@/router';
 import getPost from '../composables/getPost';
 import { projectFirestore } from '../firebase/config';
 export default {
@@ -18,6 +21,8 @@ export default {
       await projectFirestore.collection('posts')
             .doc(props.id)
             .delete();
+
+      router.push({ name: "home"});
     }
 
     return { post, error, handleDelete }
@@ -26,5 +31,11 @@ export default {
 </script>
 
 <style>
-
+  .delete{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: left;
+  }
+  
 </style>
