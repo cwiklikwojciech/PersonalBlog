@@ -20,6 +20,7 @@
 <script>
 import { ref } from '@vue/reactivity'
 import { projectFirestore } from '../firebase/config';
+import router from '@/router';
 
 export default {
   name: 'CreatePost',
@@ -47,6 +48,8 @@ export default {
       }
 
       await projectFirestore.collection('posts').add(post);
+
+      router.push({ name: "home"});
 
     }
 

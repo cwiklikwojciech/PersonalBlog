@@ -20,7 +20,6 @@ import { computed } from '@vue/runtime-core'
 export default {
     props: ['post'],
     setup(props){
-      console.log(props.post.id);
       const snippet = computed(() => {
         return props.post.body;
       })
