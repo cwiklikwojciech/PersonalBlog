@@ -1,19 +1,16 @@
-# personal-blog
+# Vue Firebase Personal Blog Example
+Let's learn vue with firebase database  🚀
+This project created when i learn Vue Personal Blog with firebase database
+## Technology
+Vue JS -  [https://vuejs.org](https://vuejs.org/)
+Firebase -  [https://firebase.google.com](https://firebase.google.com/)
+## Installation
+`git clone https://github.com/cwiklikwojciech/PersonalBlog.git`
+`cd PersonalBlog`
 
-## Project setup
-```
-npm install
-```
+The firebase config located at src/config/config.js
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+`npm install`
+## Run Project
+`npm run serve`
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
